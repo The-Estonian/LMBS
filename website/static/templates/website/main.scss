@@ -23,6 +23,7 @@ $border-radius: 2rem 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
 }
 
 html{
@@ -47,7 +48,7 @@ html{
     bottom: 0;
     width: 100%;
     margin-right: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     a{
         box-shadow: $box-shadow;
         width: 10rem;
@@ -59,6 +60,14 @@ html{
         margin-right: 20%;
         border-radius: $border-radius;
         text-align: center;
+        background: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
+        border: 2px solid transparent;
+        transition: 0.5s;
+        &:hover{
+            border: 2px solid rgb(0, 0, 0);
+            background: rgba(red, 0.5);
+            border-radius: $border-radius;
+        }
     }
 }
 
@@ -71,19 +80,31 @@ html{
     width: 10rem;
     border: 2px solid white;
     border-radius: $border-radius;
+    overflow: hidden;
+    background: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
     a{
+        background: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
         padding: 1rem;
         text-decoration: none;
         width: 10rem;
         text-align: center;
+        border: 2px solid transparent;
+        // border-radius: $border-radius;
+        transition: 0.5s;
         span{
             color: white;
+        }
+        &:hover{
+            border: 2px solid rgb(0, 0, 0);
+            background: rgba(red, 0.5);
+            // border-radius: $border-radius;
         }
     }
 }
 
 .content{
-    @include flex-col;
+    display: flex;
+    flex-direction: column;
     border-radius: $border-radius;
     margin-right: auto;
     margin-left: 5%;
@@ -91,10 +112,17 @@ html{
     height: 80%;
     box-shadow: $box-shadow;
     color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    &::-webkit-scrollbar{
+        display: none;
+    }
 }
 
 .form-signup,
-.form-login{
+.form-login,
+.form-new-post{
     @include flex-col;
     label{
         @include flex-col;
@@ -104,4 +132,43 @@ html{
         font-size: 1rem;
         margin: 1rem;
     }
+}
+
+.add-post{
+    box-shadow: $box-shadow;
+    @include flex-col;
+    position: absolute;
+    top: 24rem;
+    right: 4rem;
+    width: 10rem;
+    border: 2px solid white;
+    border-radius: $border-radius;
+    overflow: hidden;
+    a{
+        background: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
+        padding: 1rem;
+        text-decoration: none;
+        width: 10rem;
+        text-align: center;
+        border: 2px solid transparent;
+        transition: 0.5s;
+        span{
+            color: white;
+        }
+        &:hover{
+            border: 2px solid rgb(0, 0, 0);
+            background: rgba(red, 0.5);
+            border-radius: $border-radius;
+        }
+    }
+}
+
+.post-instance{
+    width: 95%;
+    padding: 1rem;
+    text-align: center;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    margin: 1rem auto;
+    background: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
 }

@@ -1,0 +1,12 @@
+{% extends "website/core_template.html" %}
+
+{% block content %}
+    <form class="form-new-post" method="post">
+        {% csrf_token %}
+        <label for="new_post">
+            <span>Add Post</span>
+            <textarea name="new_post" id="new_post" rows="4" cols="50"></textarea>
+        </label>
+        <input type="submit" value="Add Post!">
+    </form>
+{% endblock %}

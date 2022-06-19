@@ -5,6 +5,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem;
 }
 
 html {
@@ -53,7 +54,7 @@ html body {
   bottom: 0;
   width: 100%;
   margin-right: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .footer a {
@@ -68,6 +69,16 @@ html body {
   margin-right: 20%;
   border-radius: 2rem 0;
   text-align: center;
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
+  border: 2px solid transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.footer a:hover {
+  border: 2px solid black;
+  background: rgba(255, 0, 0, 0.5);
+  border-radius: 2rem 0;
 }
 
 .menu {
@@ -92,17 +103,28 @@ html body {
   width: 10rem;
   border: 2px solid white;
   border-radius: 2rem 0;
+  overflow: hidden;
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
 }
 
 .menu a {
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
   padding: 1rem;
   text-decoration: none;
   width: 10rem;
   text-align: center;
+  border: 2px solid transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .menu a span {
   color: white;
+}
+
+.menu a:hover {
+  border: 2px solid black;
+  background: rgba(255, 0, 0, 0.5);
 }
 
 .content {
@@ -113,12 +135,6 @@ html body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   border-radius: 2rem 0;
   margin-right: auto;
   margin-left: 5%;
@@ -127,10 +143,18 @@ html body {
   -webkit-box-shadow: 2px 1px 10px white;
           box-shadow: 2px 1px 10px white;
   color: white;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
 }
 
 .form-signup,
-.form-login {
+.form-login,
+.form-new-post {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -147,7 +171,8 @@ html body {
 }
 
 .form-signup label,
-.form-login label {
+.form-login label,
+.form-new-post label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -164,9 +189,67 @@ html body {
 }
 
 .form-signup p,
-.form-login p {
+.form-login p,
+.form-new-post p {
   color: white;
   font-size: 1rem;
   margin: 1rem;
+}
+
+.add-post {
+  -webkit-box-shadow: 2px 1px 10px white;
+          box-shadow: 2px 1px 10px white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 24rem;
+  right: 4rem;
+  width: 10rem;
+  border: 2px solid white;
+  border-radius: 2rem 0;
+  overflow: hidden;
+}
+
+.add-post a {
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
+  padding: 1rem;
+  text-decoration: none;
+  width: 10rem;
+  text-align: center;
+  border: 2px solid transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.add-post a span {
+  color: white;
+}
+
+.add-post a:hover {
+  border: 2px solid black;
+  background: rgba(255, 0, 0, 0.5);
+  border-radius: 2rem 0;
+}
+
+.post-instance {
+  width: 95%;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 2rem 0;
+  -webkit-box-shadow: 2px 1px 10px white;
+          box-shadow: 2px 1px 10px white;
+  margin: 1rem auto;
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
 }
 /*# sourceMappingURL=main.css.map */
