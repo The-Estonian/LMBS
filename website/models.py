@@ -12,3 +12,4 @@ from django.contrib.auth.models import User
 class Posts(Model):
     user_id = ForeignKey(User, on_delete=CASCADE)
     message = TextField(max_length=255)
+    
