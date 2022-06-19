@@ -1,0 +1,32 @@
+{% extends "website/core_template.html" %}
+
+{% block content %}
+    <form class="form-signup" method="post">
+        {% csrf_token %}
+        <label for="username">
+            <span>Username</span>
+            <input type="text" name="username">
+        </label>
+        <label for="email">
+            <span>Email</span>
+            <input type="email" name="email" id="email">
+        </label>
+        <label for="password">
+            <span>Password</span>
+            <input type="password" name="password" id="password">
+        </label>
+        <label for="password2">
+            <span>Repeat Password</span>
+            <input type="password" name="password2" id="password2">
+        </label>
+        <label for="first_name">
+            <span>First name</span>
+            <input type="text" name="first_name">
+        </label>
+        <label for="last_name">
+            <span>Last name</span>
+            <input type="text" name="last_name">
+        </label>
+        <input type="submit" value="Sign Up!">
+    </form>
+{% endblock %}

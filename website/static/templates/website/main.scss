@@ -35,9 +35,10 @@ html{
 .container{
     @include flex-col;
     height: 100%;
-    background: url("./images/background.jpg");
+    background: url("./images/background2.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    
 }
 
 .footer{
@@ -45,7 +46,8 @@ html{
     position: absolute;
     bottom: 0;
     width: 100%;
-    margin-bottom: 0.5rem;
+    margin-right: auto;
+    margin-bottom: 1rem;
     a{
         box-shadow: $box-shadow;
         width: 10rem;
@@ -53,7 +55,8 @@ html{
         text-decoration: none;
         padding: 1rem;
         border: 2px solid white;
-        margin: auto;
+        margin: 0 10%;
+        margin-right: 20%;
         border-radius: $border-radius;
         text-align: center;
     }
@@ -63,8 +66,8 @@ html{
     box-shadow: $box-shadow;
     @include flex-col;
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: 5.5rem;
+    right: 4rem;
     width: 10rem;
     border: 2px solid white;
     border-radius: $border-radius;
@@ -88,4 +91,17 @@ html{
     height: 80%;
     box-shadow: $box-shadow;
     color: white;
+}
+
+.form-signup,
+.form-login{
+    @include flex-col;
+    label{
+        @include flex-col;
+    }
+    p{
+        color: white;
+        font-size: 1rem;
+        margin: 1rem;
+    }
 }
