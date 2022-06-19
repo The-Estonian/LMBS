@@ -1,0 +1,15 @@
+{% extends "website/core_template.html" %}
+
+{% block content %}
+    <form method="post">
+        <label for="email">
+            <input type="email" name="email" id="email">
+            <span>Sisesta virtuaalne kiri</span>
+        </label>
+        <label for="password">
+            <input type="password" name="password" id="password">
+            <span>Sisesta salajane sõna</span>
+        </label>,
+        <input type="submit" value="Suundu sissepoole?">
+    </form>
+{% endblock %}

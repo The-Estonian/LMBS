@@ -11,11 +11,15 @@
 <body>
     <div class="container">
         <div class="menu">
-            <a href=""><span>Main</span></a>
+            <a href="{% url 'index' %}"><span>Main</span></a>
+            {% if not user.is_authenticated %}
             <a href=""><span>Register</span></a>
-            <a href=""><span>Account</span></a>
-            <a href=""><span>Log In</span></a>
-            <a href=""><span>Log Out</span></a>
+            <a href="{% url 'log_in' %}"><span>Log In</span></a>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <a href="{% url 'user_account_info' %}"><span>Account</span></a>
+            <a href="{% url 'log_out' %}"><span>Log Out</span></a>
+            {% endif %}
         </div>
         <div class="content">
             {% block content %}
