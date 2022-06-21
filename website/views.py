@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Posts
 from django.contrib.auth.models import User
 
@@ -6,7 +6,9 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 def index(request):
-    return render(request, "website/index.html")
+    last_5_posts = Posts.objects.all().order_by("-id")[:5]
+    context = {"last_5_posts":last_5_posts}
+    return render(request, "website/index.html", context)
 
 def posts(request):
     all_posts = Posts.objects.all()
@@ -21,5 +23,11 @@ def add_post(request):
         new_post = Posts.objects.create(user_id=current_poster_instance, message=new_post_message)
         new_post.save()
         print(f"User {current_poster_instance.username} posts {new_post_message}")
+        return redirect("posts")
     return render(request, "website/add_post.html")
 
+def my_posts(request):
+    current_user_id = request.user.id
+    current_user_posts = Posts.objects.filter(user_id=current_user_id)
+    context = {"current_user_posts":current_user_posts}
+    return render(request, "website/user_posts.html", context)

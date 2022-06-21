@@ -28,5 +28,11 @@
             <input type="text" name="last_name">
         </label>
         <input type="submit" value="Sign Up!">
+        {% if email %}
+            <span>{{email}}</span>
+        {% endif %}
+        {% if password_match %}
+            <span>{{password_match}}</span>
+        {% endif %}
     </form>
 {% endblock %}

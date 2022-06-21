@@ -15,5 +15,14 @@
         {% if email %}
             <p>{{email}}</p>
         {% endif %}
+        {% if user_error %}
+            <p>{{user_error}}</p>
+        {% endif %}
+        {% if password_match %}
+            <p>{{password_match}}</p>
+        {% endif %}
+        {% if password_error %}
+            <p>{{password_error}}</p>
+        {% endif %}
     </form>
 {% endblock %}
