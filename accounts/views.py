@@ -22,6 +22,12 @@ def accounts(request):
     current_user = request.user.id
     fetch_user = User.objects.filter(id=current_user)
     context = {"account_info": fetch_user}
+    if request.method == "POST":
+        id_to_delete = request.POST["delete-account"]
+        active_user = User.objects.get(id=id_to_delete)
+        # print(f"deleting", active_user)
+        active_user.delete()
+        return redirect("log_in")
     return render(request, "accounts/accounts.html", context)
 
 def log_out(request):

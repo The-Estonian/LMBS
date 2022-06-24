@@ -15,8 +15,8 @@
     align-items: center;
 }
 
+$background-style: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
 $box-shadow: 2px 1px 10px white;
-// $font: 1.3rem;
 $border-radius: 2rem 0;
 
 *{
@@ -57,7 +57,7 @@ html{
         border: 2px solid white;
         border-radius: $border-radius;
         text-align: center;
-        background: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
+        background: $background-style;
         border: 2px solid transparent;
         transition: 0.5s;
         &:hover{
@@ -86,7 +86,7 @@ html{
         margin-right: 20%;
         border-radius: $border-radius;
         text-align: center;
-        background: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
+        background: $background-style;
         border: 2px solid transparent;
         transition: 0.5s;
         &:hover{
@@ -107,15 +107,14 @@ html{
     border: 2px solid white;
     border-radius: $border-radius;
     overflow: hidden;
-    background: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
+    background: $background-style;
     a{
-        background: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
+        background: $background-style;
         padding: 1rem;
         text-decoration: none;
         width: 10rem;
         text-align: center;
         border: 2px solid transparent;
-        // border-radius: $border-radius;
         transition: 0.5s;
         span{
             color: white;
@@ -123,7 +122,6 @@ html{
         &:hover{
             border: 2px solid rgb(0, 0, 0);
             background: rgba(red, 0.5);
-            // border-radius: $border-radius;
         }
     }
 }
@@ -176,7 +174,7 @@ html{
     border-radius: $border-radius;
     overflow: hidden;
     a{
-        background: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
+        background: $background-style;
         padding: 1rem;
         text-decoration: none;
         width: 10rem;
@@ -201,10 +199,47 @@ html{
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     margin: 1rem auto;
-    background: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
+    background: $background-style;
+}
+
+.registration-success{
+    @include flex-col;
+    height: 100%;
+    &__content{
+        padding: 1rem;
+        text-align: center;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        margin: 0.5rem auto;
+        background: $background-style;
+    }
+    &__login{
+        background: $background-style;
+        padding: 1rem;
+        text-decoration: none;
+        width: 10rem;
+        text-align: center;
+        border: 2px solid transparent;
+        transition: 0.5s;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        margin: 0.5rem auto;
+        span{
+            color: white;
+        }
+        &:hover{
+            border: 2px solid rgb(0, 0, 0);
+            background: rgba(red, 0.5);
+        }
+    }
 }
 
 .user-info{
-    height: 100%;
     @include flex-col;
+    height: 100%;
+}
+
+.hidden{
+    display: none;
+    visibility: hidden;
 }

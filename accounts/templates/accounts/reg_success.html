@@ -1,6 +1,9 @@
 {% extends "website/core_template.html" %}
 
 {% block content %}
-<span class="no-content-span">Welcome to Leaf micro blogging systems!</span>
-<span class="no-content-span">Please Log In and add your posts from the right menu!</span>
+<div class="registration-success">
+<span class="registration-success__content">Welcome to Leaf micro blogging systems!</span>
+<span class="registration-success__content">Your account has been created and you can log in below</span>
+<a class="registration-success__login" href="{% url 'log_in' %}"><span>Log In</span></a>
+</div>
 {% endblock %}
