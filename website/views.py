@@ -30,4 +30,6 @@ def my_posts(request):
     current_user_id = request.user.id
     current_user_posts = Posts.objects.filter(user_id=current_user_id)
     context = {"current_user_posts":current_user_posts}
+    if request.method == "POST":
+        print(request.POST)
     return render(request, "website/user_posts.html", context)
