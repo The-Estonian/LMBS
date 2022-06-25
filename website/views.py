@@ -10,10 +10,14 @@ def index(request):
     context = {"last_5_posts":last_5_posts}
     return render(request, "website/index.html", context)
 
-def posts(request):
+def all_posts(request):
     all_posts = Posts.objects.all()
     context = {"all_posts":all_posts}
-    return render(request, "website/view_posts.html", context)
+    if request.method == "POST":
+        post_id_to_delete =request.POST["delete_post"]
+        post_instance = Posts.objects.get(id=post_id_to_delete)
+        post_instance.delete()
+    return render(request, "website/all_posts.html", context)
 
 def add_post(request):
     if request.method == "POST":
@@ -23,13 +27,15 @@ def add_post(request):
         new_post = Posts.objects.create(user_id=current_poster_instance, message=new_post_message)
         new_post.save()
         print(f"User {current_poster_instance.username} posts {new_post_message}")
-        return redirect("posts")
+        return redirect("user_posts")
     return render(request, "website/add_post.html")
 
-def my_posts(request):
+def user_posts(request):
     current_user_id = request.user.id
     current_user_posts = Posts.objects.filter(user_id=current_user_id)
     context = {"current_user_posts":current_user_posts}
     if request.method == "POST":
-        print(request.POST)
+        post_id_to_delete =request.POST["delete_post"]
+        post_instance = Posts.objects.get(id=post_id_to_delete)
+        post_instance.delete()
     return render(request, "website/user_posts.html", context)

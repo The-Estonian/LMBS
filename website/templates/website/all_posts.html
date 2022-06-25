@@ -1,0 +1,26 @@
+{% extends "website/core_template.html" %}
+
+{% block content %}
+    <div class="add-post">
+        <a href="{% url 'add_post' %}"><span>Add Post</span></a>
+    </div>
+    {% if all_posts %}
+        {% for posts in all_posts reversed %}
+            <div class="post-instance">
+                <span class="post-instance__username">{{posts.user_id.username}}</span>
+                <span class="post-instance__post">{{posts.message}}</span>
+                {% if user.is_authenticated %}
+                    {% if posts.user_id_id == user.id %}
+                        <form class="post-instance__delete" method="post">
+                            {% csrf_token %}
+                            <input class="hidden" type="text" name="delete_post" value="{{posts.id}}">
+                            <input class="post-instance__delete__button" type="submit" value="x">
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+            <span class="no-content-span">No Posts yet!</span>
+    {% endif %}
+{% endblock %}
