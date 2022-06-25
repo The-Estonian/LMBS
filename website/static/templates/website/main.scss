@@ -193,13 +193,37 @@ html{
 }
 
 .post-instance{
+    display: flex;
+    flex-direction: row;
     width: 95%;
-    padding: 1rem;
     text-align: center;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     margin: 1rem auto;
     background: $background-style;
+    padding: 1rem;
+    position: relative;
+    &__username{
+        position: absolute;
+        bottom: 0.2rem;
+        left: 0.2rem;
+    }
+    &__post{
+        width: 90%;
+    }
+    &__delete{
+        position: absolute;
+        top: 0;
+        right: 0;
+        &__button{
+            border: none;
+            color: white;
+            background: rgba(red, 0.5);
+            padding: 0.2rem 0.7rem;
+            border-radius: 0 0 0 1rem;
+            cursor: pointer;
+        }
+    }
 }
 
 .registration-success{

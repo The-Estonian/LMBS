@@ -7,8 +7,13 @@
     {% if current_user_posts %}
         {% for posts in current_user_posts reversed %}
             <div class="post-instance">
-                <span class="post-instance__username">{{posts.user_id.username}} posted:</span>
+                <span class="post-instance__username">{{posts.user_id.username}}</span>
                 <span class="post-instance__post">{{posts.message}}</span>
+                <form class="post-instance__delete" method="post">
+                    {% csrf_token %}
+                    <input class="hidden" type="text" name="delete_post" value="{{posts.id}}">
+                    <input class="post-instance__delete__button" type="submit" value="x">
+                </form>
             </div>
         {% endfor %}
     {% else %}

@@ -46,7 +46,7 @@ def log_in(request):
                     user = authenticate(request, username=username, password=password)
                     if user is not None:
                         login(request, user)
-                        return redirect("posts")
+                        return redirect("user_posts")
                     else:
                         password_error = {"password_error": "Account and Password do not match."}
                         context.update(password_error)

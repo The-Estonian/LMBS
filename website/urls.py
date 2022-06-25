@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import index, posts, add_post, my_posts
+from .views import index, all_posts, add_post, user_posts
 
 urlpatterns = [
     path("", index, name="index"),
-    path("posts/", posts, name="posts"),
+    path("all_posts/", all_posts, name="all_posts"),
     path("add_post/", add_post, name="add_post"),
-    path("my_posts/", my_posts, name="my_posts"),
+    path("user_posts/", user_posts, name="user_posts"),
 ]
