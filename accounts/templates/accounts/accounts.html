@@ -14,13 +14,16 @@
                 <p>User is active?: {{value.is_active}}</p>
                 <p>User Last login: {{value.last_login}}</p>
                 <p>User joined us: {{value.date_joined}}</p>
-                <div class="delete-button">
-                    <form method="post">
+                <div class="account-buttons">
+                    <div class="account-buttons__edit">
+                        <a class="account-buttons__edit__button" href="{% url 'edit_accounts' %}"><span>Edit</span></a>
+                    </div>
+                    <form class="account-buttons__form" method="post">
                         {% csrf_token %}
-                        <label for="delete-account">
+                        <label for="account-buttons__form__delete">
                             <input class="hidden" value="{{value.id}}" type="text" name="delete-account">
                         </label>
-                        <input type="submit" value="Delete">
+                        <input class="account-buttons__form__delete__button" type="submit" value="Delete">
                     </form>
                 </div>
             </div>

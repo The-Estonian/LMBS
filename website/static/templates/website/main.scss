@@ -48,7 +48,7 @@ html{
     top: 2rem;
     left: 5%;
     a{
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         font-family: 'Source Code Pro', monospace;
         box-shadow: $box-shadow;
         color: white;
@@ -66,6 +66,9 @@ html{
             border-radius: $border-radius;
         }
     }
+    @media (max-width: 1500px){
+        display: none;
+}
 }
 
 .footer{
@@ -94,6 +97,13 @@ html{
             background: rgba(red, 0.5);
             border-radius: $border-radius;
         }
+        @media (max-width: 1500px){
+            padding: 0.2rem;
+        }
+    }
+    @media (max-width: 1500px){
+        position:static;
+        margin-top: 0.6rem;
     }
 }
 
@@ -124,6 +134,13 @@ html{
             background: rgba(red, 0.5);
         }
     }
+    @media (max-width: 1500px){
+            position: static;
+            flex-direction: row;
+            margin: 1rem;
+            height: 3.5rem;
+            width: 450px;
+    }
 }
 
 .content{
@@ -145,6 +162,10 @@ html{
     }
     &::-webkit-scrollbar{
         display: none;
+    }
+    @media (max-width: 1500px){
+        width: 95%;
+        margin: auto;
     }
 }
 
@@ -189,6 +210,12 @@ html{
             background: rgba(red, 0.5);
             border-radius: $border-radius;
         }
+    }
+    @media (max-width: 1500px){
+        height: 2.5rem;
+        top: 94vh;
+        right: 49vw;
+        width: 8rem;
     }
 }
 
@@ -266,4 +293,42 @@ html{
 .hidden{
     display: none;
     visibility: hidden;
+}
+
+.edit-account{
+    height: 100%;
+    form{
+        height: 100%;
+        @include flex-col;
+    }
+}
+
+.account-buttons{
+    @include flex-row;
+    &__form{
+        @include flex-col;
+        height: 100%;
+        &__delete{
+            &__button{
+                margin: 0.5rem;
+                background: none;
+                border: none;
+                padding: 1rem;
+                text-decoration: none;
+                color: white;
+                box-shadow: $box-shadow;
+                border-radius: 1rem;
+            }
+        }
+    }
+    &__edit{
+        &__button{
+            margin: 0.5rem;
+            padding: 1rem;
+            text-decoration: none;
+            color: white;
+            box-shadow: $box-shadow;
+            border-radius: 1rem;
+        }
+    }
 }

@@ -77,17 +77,19 @@ def sign_up(request):
         first_name = request.POST["first_name"]
         last_name = request.POST["last_name"]
         if email_cleaner(email):
-            print("Email correct")
             if password == password2:
-                print("Password correct")
-                new_user = User.objects.create_user(
-                    username=username,
-                    password=password,
-                    email=email,
-                    first_name=first_name,
-                    last_name=last_name )
-                new_user.save()
-                return redirect("reg_success")
+                if username_cleaner(username):
+                    new_user = User.objects.create_user(
+                        username=username,
+                        password=password,
+                        email=email,
+                        first_name=first_name,
+                        last_name=last_name )
+                    new_user.save()
+                    return redirect("reg_success")
+                else:
+                    username_error = {"username_error": "Please use only numbers and Upper/Lower case letters for username!"}
+                    context.update(username_error)
             else:
                 print("Password error")
                 password_error = {"password_match": "Your passwords did not match!"}
@@ -101,3 +103,56 @@ def sign_up(request):
 
 def reg_success(request):
     return render(request, "accounts/reg_success.html")
+
+def edit_accounts(request):
+    current_user = request.user.id
+    fetch_user = User.objects.filter(id=current_user)
+    context = {"account_info": fetch_user}
+    if request.method == "POST":
+        if fetch_user[0].id == int(request.POST["user_id"]):
+            username = request.POST["username"]
+            first_name = request.POST["first_name"]
+            last_name = request.POST["last_name"]
+            email = request.POST["email"]
+            old_password = request.POST["old_password"]
+            new_password = request.POST["new_password"]
+            new2_password = request.POST["new2_password"]
+            user_instance = User.objects.get(id=current_user)
+            if user_instance.check_password(old_password):
+                if email_cleaner(email):
+                    if username_cleaner(username):
+                        user_instance.username = username
+                        user_instance.first_name = first_name
+                        user_instance.last_name = last_name
+                        user_instance.email = email
+                        user_instance.save()
+                        if len(new_password) > 0:
+                            print("old password")
+                            if new_password == new2_password:
+                                user_instance.set_password(new_password)
+                                user_instance.save()
+                            else:
+                                print("password error")
+                                password_error = {"password_missmatch": "Your entered passwords do not match!"}
+                                context.update(password_error)
+                    else:
+                        username_error = {"username_error": "Please use only numbers and Upper/Lower case letters for username!"}
+                        context.update(username_error)
+                else:
+                    email_error = {"email": "Your email did not pass server validation. Please enter a correct email!"}
+                    context.update(email_error)
+            else:
+                wrong_password = {"wrong_password": "Please provide account password to save changes!"}
+                context.update(wrong_password)
+    print(context)
+    return render(request, "accounts/edit_accounts.html", context)
+
+"""
+'username': ['Second_user'], 
+'first_name': ['Second'], 
+'last_name': ['User'], 
+'email': ['Second@user.com'], 
+'old_password': ['asd'], 
+'new_password': ['ssad'], 
+'new2_password': ['ssad']}>
+"""

@@ -1,0 +1,59 @@
+{% extends "website/core_template.html" %}
+
+{% block content %}
+    {% if account_info %}
+        {% for value in account_info %}
+            <div class="edit-account">
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="user_id">
+                        <input class="hidden" type="text" name="user_id" value="{{value.id}}">
+                    </label>
+                    <p>User ID: {{value.id}}</p>
+                    <label for="username">
+                        <span>Username:</span>
+                        <input type="text" name="username" value="{{value.username}}">
+                    </label>
+                    <label for="first_name">
+                        <span>First name:</span>
+                        <input type="text" name="first_name" value="{{value.first_name}}">
+                    </label>
+                    <label for="last_name">
+                        <span>Last name:</span>
+                        <input type="text" name="last_name" value="{{value.last_name}}">
+                    </label>
+                    <label for="email">
+                        <span>Email:</span>
+                        <input type="email" name="email" value="{{value.email}}">
+                    </label>
+                    <span>Change password:</span>
+                    <label for="old_password">
+                        <span>Old password:</span>
+                        <input type="password" name="old_password">
+                    </label>
+                    <label for="new_password">
+                        <span>New password:</span>
+                        <input type="password" name="new_password">
+                    </label>
+                    <label for="new2_password">
+                        <span>Repeat password:</span>
+                        <input type="password" name="new2_password">
+                    </label>
+                    <input type="submit" value="Edit">
+                    {% if email %}
+                    <span>{{email}}</span>
+                    {% endif %}
+                    {% if username_error %}
+                    <span>{{username_error}}</span>
+                    {% endif %}
+                    {% if password_missmatch %}
+                    <span>{{password_missmatch}}</span>
+                    {% endif %}
+                    {% if wrong_password %}
+                    <span>{{wrong_password}}</span>
+                    {% endif %}
+                </form>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
