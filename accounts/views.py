@@ -6,17 +6,26 @@ from re import match
 
 # Create your views here.
 
-def email_cleaner(variable):
-    pat = "^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
+def email_validator(variable):
+    pat = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
     if match(pat,variable):
         return True
     return False
 
-def username_cleaner(variable):
+def username_validator(variable):
     pat = "^[a-zA-Z0-9_.-]+$"
     if match(pat, variable):
         return True
     return False
+
+def name_validator(variable):
+    pat = "/[a-z]/gi"
+    if match(pat, variable):
+        return True
+    return False
+
+def name_cleaner(variable):
+    return variable.capitalize()
 
 def accounts(request):
     current_user = request.user.id
@@ -38,7 +47,7 @@ def log_in(request):
     context = {}
     if request.method == "POST":
         email = request.POST["email"]
-        if email_cleaner(email):
+        if email_validator(email):
             try:
                 username = User.objects.get(email=email)
                 password = request.POST["password"]
@@ -76,21 +85,27 @@ def sign_up(request):
         password2 = request.POST["password2"]
         first_name = request.POST["first_name"]
         last_name = request.POST["last_name"]
-        if email_cleaner(email):
-            print("Email correct")
-            if password == password2:
-                print("Password correct")
-                new_user = User.objects.create_user(
-                    username=username,
-                    password=password,
-                    email=email,
-                    first_name=first_name,
-                    last_name=last_name )
-                new_user.save()
-                return redirect("reg_success")
+        if email_validator(email):
+            if password == password2 and len(password) >= 6:
+                if username_validator(username):
+                    if name_validator(first_name) and name_validator(last_name):
+                        new_user = User.objects.create_user(
+                            username=username,
+                            password=password,
+                            email=email,
+                            first_name=name_cleaner(first_name),
+                            last_name=name_cleaner(last_name))
+                        new_user.save()
+                        return redirect("reg_success")
+                    else:
+                        name_error = {"name_error": "First and Last name can only contain letters!"}
+                        context.update(name_error)
+                else:
+                    username_error = {"username_error": "Please use only numbers and Upper/Lower case letters for username!"}
+                    context.update(username_error)
             else:
                 print("Password error")
-                password_error = {"password_match": "Your passwords did not match!"}
+                password_error = {"password_match": "Your passwords did not match or password too short. Min 6 characters!"}
                 context.update(password_error)
         else:
             print("Email error")
@@ -101,3 +116,53 @@ def sign_up(request):
 
 def reg_success(request):
     return render(request, "accounts/reg_success.html")
+
+def edit_accounts(request):
+    current_user = request.user.id
+    fetch_user = User.objects.filter(id=current_user)
+    context = {"account_info": fetch_user}
+    if request.method == "POST":
+        username = request.POST["username"]
+        first_name = request.POST["first_name"]
+        last_name = request.POST["last_name"]
+        email = request.POST["email"]
+        old_password = request.POST["old_password"]
+        new_password = request.POST["new_password"]
+        new2_password = request.POST["new2_password"]
+        user_instance = User.objects.get(id=current_user)
+        if user_instance.check_password(old_password):
+            if email_validator(email):
+                if username_validator(username):
+                    user_instance.username = username
+                    user_instance.first_name = first_name
+                    user_instance.last_name = last_name
+                    user_instance.email = email
+                    user_instance.save()
+                    if len(new_password) > 0:
+                        if new_password == new2_password:
+                            user_instance.set_password(new_password)
+                            user_instance.save()
+                        else:
+                            password_error = {"password_missmatch": "Your entered passwords do not match!"}
+                            context.update(password_error)
+                else:
+                    username_error = {"username_error": "Please use only numbers and Upper/Lower case letters for username!"}
+                    context.update(username_error)
+            else:
+                email_error = {"email": "Your email did not pass server validation. Please enter a correct email!"}
+                context.update(email_error)
+        else:
+            wrong_password = {"wrong_password": "Please provide account password to make changes!"}
+            context.update(wrong_password)
+    print(context)
+    return render(request, "accounts/edit_accounts.html", context)
+
+"""
+'username': ['Second_user'], 
+'first_name': ['Second'], 
+'last_name': ['User'], 
+'email': ['Second@user.com'], 
+'old_password': ['asd'], 
+'new_password': ['ssad'], 
+'new2_password': ['ssad']}>
+"""

@@ -44,7 +44,7 @@ html body {
 }
 
 .header a {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-family: 'Source Code Pro', monospace;
   -webkit-box-shadow: 2px 1px 10px white;
           box-shadow: 2px 1px 10px white;
@@ -64,6 +64,12 @@ html body {
   border: 2px solid black;
   background: rgba(255, 0, 0, 0.5);
   border-radius: 2rem 0;
+}
+
+@media (max-width: 1500px) {
+  .header {
+    display: none;
+  }
 }
 
 .footer {
@@ -109,6 +115,19 @@ html body {
   border: 2px solid black;
   background: rgba(255, 0, 0, 0.5);
   border-radius: 2rem 0;
+}
+
+@media (max-width: 1500px) {
+  .footer a {
+    padding: 0.2rem;
+  }
+}
+
+@media (max-width: 1500px) {
+  .footer {
+    position: static;
+    margin-top: 0.6rem;
+  }
 }
 
 .menu {
@@ -157,6 +176,19 @@ html body {
   background: rgba(255, 0, 0, 0.5);
 }
 
+@media (max-width: 1500px) {
+  .menu {
+    position: static;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin: 1rem;
+    height: 3.5rem;
+    width: 450px;
+  }
+}
+
 .content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -197,6 +229,13 @@ html body {
 
 .content::-webkit-scrollbar {
   display: none;
+}
+
+@media (max-width: 1500px) {
+  .content {
+    width: 95%;
+    margin: auto;
+  }
 }
 
 .form-signup,
@@ -288,6 +327,15 @@ html body {
   border: 2px solid black;
   background: rgba(255, 0, 0, 0.5);
   border-radius: 2rem 0;
+}
+
+@media (max-width: 1500px) {
+  .add-post {
+    height: 2.5rem;
+    top: 94vh;
+    right: 49vw;
+    width: 8rem;
+  }
 }
 
 .post-instance {
@@ -405,5 +453,81 @@ html body {
 .hidden {
   display: none;
   visibility: hidden;
+}
+
+.edit-account {
+  height: 100%;
+}
+
+.edit-account form {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.account-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.account-buttons__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.account-buttons__form__delete__button {
+  margin: 0.5rem;
+  background: none;
+  border: none;
+  padding: 1rem;
+  text-decoration: none;
+  color: white;
+  -webkit-box-shadow: 2px 1px 10px white;
+          box-shadow: 2px 1px 10px white;
+  border-radius: 1rem;
+}
+
+.account-buttons__edit__button {
+  margin: 0.5rem;
+  padding: 1rem;
+  text-decoration: none;
+  color: white;
+  -webkit-box-shadow: 2px 1px 10px white;
+          box-shadow: 2px 1px 10px white;
+  border-radius: 1rem;
 }
 /*# sourceMappingURL=main.css.map */
