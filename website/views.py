@@ -39,3 +39,8 @@ def user_posts(request):
         post_instance = Posts.objects.get(id=post_id_to_delete)
         post_instance.delete()
     return render(request, "website/user_posts.html", context)
+
+def edit_post(request, post_id):
+    post_to_edit = Posts.objects.filter(id=post_id)
+    context = {"post_edit": post_to_edit}
+    return render(request, "website/edit_post.html", context)

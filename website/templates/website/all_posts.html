@@ -11,6 +11,7 @@
                 <span class="post-instance__post">{{posts.message}}</span>
                 {% if user.is_authenticated %}
                     {% if posts.user_id_id == user.id %}
+                        <a href="{% url 'edit_post' posts.id %}"><span>edit</span></a>
                         <form class="post-instance__delete" method="post">
                             {% csrf_token %}
                             <input class="hidden" type="text" name="delete_post" value="{{posts.id}}">
