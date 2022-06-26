@@ -32,7 +32,7 @@ html body {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
-  background: url("./images/background2.jpg");
+  background: url("./images/background5.jpg");
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -46,15 +46,15 @@ html body {
 .header a {
   font-size: 1.2rem;
   font-family: 'Source Code Pro', monospace;
-  -webkit-box-shadow: 2px 1px 10px white;
-          box-shadow: 2px 1px 10px white;
-  color: white;
+  -webkit-box-shadow: 2px 1px 10px black;
+          box-shadow: 2px 1px 10px black;
+  color: #ffffff;
   text-decoration: none;
   padding: 1rem 2rem;
-  border: 2px solid white;
-  border-radius: 2rem 0;
+  border: 2px solid transparent;
+  border-radius: 0.2rem;
   text-align: center;
-  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6));
   border: 2px solid transparent;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -63,7 +63,7 @@ html body {
 .header a:hover {
   border: 2px solid black;
   background: rgba(255, 0, 0, 0.5);
-  border-radius: 2rem 0;
+  border-radius: 0.2rem;
 }
 
 @media (max-width: 1500px) {
@@ -94,19 +94,18 @@ html body {
 }
 
 .footer a {
-  -webkit-box-shadow: 2px 1px 10px white;
-          box-shadow: 2px 1px 10px white;
+  -webkit-box-shadow: 2px 1px 10px black;
+          box-shadow: 2px 1px 10px black;
   width: 10rem;
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   padding: 1rem;
-  border: 2px solid white;
+  border: 2px solid transparent;
   margin: 0 10%;
   margin-right: 20%;
-  border-radius: 2rem 0;
+  border-radius: 0.2rem;
   text-align: center;
-  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
-  border: 2px solid transparent;
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6));
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -114,7 +113,7 @@ html body {
 .footer a:hover {
   border: 2px solid black;
   background: rgba(255, 0, 0, 0.5);
-  border-radius: 2rem 0;
+  border-radius: 0.2rem;
 }
 
 @media (max-width: 1500px) {
@@ -131,8 +130,8 @@ html body {
 }
 
 .menu {
-  -webkit-box-shadow: 2px 1px 10px white;
-          box-shadow: 2px 1px 10px white;
+  -webkit-box-shadow: 2px 1px 10px black;
+          box-shadow: 2px 1px 10px black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -150,14 +149,13 @@ html body {
   top: 5.5rem;
   right: 4rem;
   width: 10rem;
-  border: 2px solid white;
-  border-radius: 2rem 0;
+  border-radius: 0.2rem;
   overflow: hidden;
-  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6));
 }
 
 .menu a {
-  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6));
   padding: 1rem;
   text-decoration: none;
   width: 10rem;
@@ -168,7 +166,7 @@ html body {
 }
 
 .menu a span {
-  color: white;
+  color: #ffffff;
 }
 
 .menu a:hover {
@@ -197,14 +195,15 @@ html body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border-radius: 2rem 0;
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6));
+  border-radius: 0.2rem;
   margin-right: auto;
   margin-left: 5%;
   width: 80%;
   height: 80%;
-  -webkit-box-shadow: 2px 1px 10px white;
-          box-shadow: 2px 1px 10px white;
-  color: white;
+  -webkit-box-shadow: 2px 1px 10px black;
+          box-shadow: 2px 1px 10px black;
+  color: #ffffff;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none;
@@ -278,14 +277,14 @@ html body {
 .form-signup p,
 .form-login p,
 .form-new-post p {
-  color: white;
+  color: #ffffff;
   font-size: 1rem;
   margin: 1rem;
 }
 
 .add-post {
-  -webkit-box-shadow: 2px 1px 10px white;
-          box-shadow: 2px 1px 10px white;
+  -webkit-box-shadow: 2px 1px 10px black;
+          box-shadow: 2px 1px 10px black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -303,13 +302,12 @@ html body {
   top: 24rem;
   right: 4rem;
   width: 10rem;
-  border: 2px solid white;
-  border-radius: 2rem 0;
+  border-radius: 0.2rem;
   overflow: hidden;
 }
 
 .add-post a {
-  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6));
   padding: 1rem;
   text-decoration: none;
   width: 10rem;
@@ -320,13 +318,13 @@ html body {
 }
 
 .add-post a span {
-  color: white;
+  color: #ffffff;
 }
 
 .add-post a:hover {
   border: 2px solid black;
   background: rgba(255, 0, 0, 0.5);
-  border-radius: 2rem 0;
+  border-radius: 0.2rem;
 }
 
 @media (max-width: 1500px) {
@@ -348,11 +346,11 @@ html body {
           flex-direction: row;
   width: 95%;
   text-align: center;
-  border-radius: 2rem 0;
-  -webkit-box-shadow: 2px 1px 10px white;
-          box-shadow: 2px 1px 10px white;
+  border-radius: 0.2rem;
+  -webkit-box-shadow: 2px 1px 10px black;
+          box-shadow: 2px 1px 10px black;
   margin: 1rem auto;
-  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
+  background: rgba(0, 0, 0, 0.7);
   padding: 1rem;
   position: relative;
 }
@@ -375,10 +373,10 @@ html body {
 
 .post-instance__delete__button {
   border: none;
-  color: white;
+  color: #ffffff;
   background: rgba(255, 0, 0, 0.5);
   padding: 0.2rem 0.5rem;
-  border-radius: 50%;
+  border-radius: 0.2rem;
   cursor: pointer;
 }
 
@@ -402,15 +400,15 @@ html body {
 .registration-success__content {
   padding: 1rem;
   text-align: center;
-  border-radius: 2rem 0;
-  -webkit-box-shadow: 2px 1px 10px white;
-          box-shadow: 2px 1px 10px white;
+  border-radius: 0.2rem;
+  -webkit-box-shadow: 2px 1px 10px black;
+          box-shadow: 2px 1px 10px black;
   margin: 0.5rem auto;
-  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6));
 }
 
 .registration-success__login {
-  background: linear-gradient(225deg, rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2), rgba(0, 0, 0, 0.9), rgba(247, 54, 54, 0.2));
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6), rgba(0, 0, 0, 0.8), rgba(247, 54, 54, 0.6));
   padding: 1rem;
   text-decoration: none;
   width: 10rem;
@@ -418,14 +416,14 @@ html body {
   border: 2px solid transparent;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  border-radius: 2rem 0;
-  -webkit-box-shadow: 2px 1px 10px white;
-          box-shadow: 2px 1px 10px white;
+  border-radius: 0.2rem;
+  -webkit-box-shadow: 2px 1px 10px black;
+          box-shadow: 2px 1px 10px black;
   margin: 0.5rem auto;
 }
 
 .registration-success__login span {
-  color: white;
+  color: #ffffff;
 }
 
 .registration-success__login:hover {
@@ -515,19 +513,20 @@ html body {
   border: none;
   padding: 1rem;
   text-decoration: none;
-  color: white;
-  -webkit-box-shadow: 2px 1px 10px white;
-          box-shadow: 2px 1px 10px white;
-  border-radius: 1rem;
+  color: #ffffff;
+  -webkit-box-shadow: 2px 1px 10px black;
+          box-shadow: 2px 1px 10px black;
+  border-radius: 0.2rem;
+  cursor: pointer;
 }
 
 .account-buttons__edit__button {
   margin: 0.5rem;
   padding: 1rem;
   text-decoration: none;
-  color: white;
-  -webkit-box-shadow: 2px 1px 10px white;
-          box-shadow: 2px 1px 10px white;
-  border-radius: 1rem;
+  color: #ffffff;
+  -webkit-box-shadow: 2px 1px 10px black;
+          box-shadow: 2px 1px 10px black;
+  border-radius: 0.2rem;
 }
 /*# sourceMappingURL=main.css.map */

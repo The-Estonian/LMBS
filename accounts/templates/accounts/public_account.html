@@ -1,0 +1,21 @@
+{% extends "website/core_template.html" %}
+
+{% block content %}
+    {% if user_account %}
+        {% for value in user_account %}
+            <div class="user-info">
+                <p>User ID: {{value.id}}</p>
+                <p>User Username: {{value.username}}</p>
+                <p>User First name: {{value.first_name}}</p>
+                <p>User Last name: {{value.last_name}}</p>
+                <p>User Email: {{value.email}}</p>
+                <p>User is Superuser?: {{value.is_superuser}}</p>
+                <p>User is staff?: {{value.is_staff}}</p>
+                <p>User is active?: {{value.is_active}}</p>
+                <p>User Last login: {{value.last_login}}</p>
+                <p>User joined us: {{value.date_joined}}</p>
+                <a href="{% url 'public_posts' value.id %}">User posts</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

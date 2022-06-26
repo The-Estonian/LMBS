@@ -44,3 +44,8 @@ def edit_post(request, post_id):
     post_to_edit = Posts.objects.filter(id=post_id)
     context = {"post_edit": post_to_edit}
     return render(request, "website/edit_post.html", context)
+
+def public_posts(request, user_id):
+    public_post = Posts.objects.filter(user_id=user_id)
+    context = {"public_post": public_post}
+    return render(request, "website/public_posts.html", context)
