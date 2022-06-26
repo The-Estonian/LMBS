@@ -29,10 +29,16 @@
         </label>
         <input type="submit" value="Sign Up!">
         {% if email %}
-            <span>{{email}}</span>
+        <span>{{email}}</span>
+        {% endif %}
+        {% if username_error %}
+        <span>{{username_error}}</span>
         {% endif %}
         {% if password_match %}
-            <span>{{password_match}}</span>
+        <span>{{password_match}}</span>
+        {% endif %}
+        {% if name_error %}
+        <span>{{name_error}}</span>
         {% endif %}
     </form>
 {% endblock %}
