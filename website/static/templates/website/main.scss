@@ -15,9 +15,16 @@
     align-items: center;
 }
 
-$background-style: linear-gradient(225deg,rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2), rgba(black, 0.9), rgba(rgb(247, 54, 54), 0.2));
-$box-shadow: 2px 1px 10px white;
-$border-radius: 2rem 0;
+$background-style: linear-gradient(225deg,
+                                   rgba(#f73636, 0.6), 
+                                   rgba(#000000, 0.8), 
+                                   rgba(#f73636, 0.6), 
+                                   rgba(#000000, 0.8), 
+                                   rgba(#f73636, 0.6));
+$box-shadow: 2px 1px 10px black;
+$border-radius: 0.2rem;
+$text-color: #ffffff;
+$border-color: transparent;
 
 *{
     margin: 0;
@@ -37,7 +44,7 @@ html{
 .container{
     @include flex-col;
     height: 100%;
-    background: url("./images/background2.jpg");
+    background: url("./images/background5.jpg");
     background-size: cover;
     background-position: 50% 50%;
     
@@ -51,14 +58,14 @@ html{
         font-size: 1.2rem;
         font-family: 'Source Code Pro', monospace;
         box-shadow: $box-shadow;
-        color: white;
+        color: $text-color;
         text-decoration: none;
         padding: 1rem 2rem;
-        border: 2px solid white;
+        border: 2px solid $border-color;
         border-radius: $border-radius;
         text-align: center;
         background: $background-style;
-        border: 2px solid transparent;
+        border: 2px solid $border-color;
         transition: 0.5s;
         &:hover{
             border: 2px solid rgb(0, 0, 0);
@@ -81,16 +88,15 @@ html{
     a{
         box-shadow: $box-shadow;
         width: 10rem;
-        color: white;
+        color: $text-color;
         text-decoration: none;
         padding: 1rem;
-        border: 2px solid white;
+        border: 2px solid $border-color;
         margin: 0 10%;
         margin-right: 20%;
         border-radius: $border-radius;
         text-align: center;
         background: $background-style;
-        border: 2px solid transparent;
         transition: 0.5s;
         &:hover{
             border: 2px solid rgb(0, 0, 0);
@@ -114,7 +120,6 @@ html{
     top: 5.5rem;
     right: 4rem;
     width: 10rem;
-    border: 2px solid white;
     border-radius: $border-radius;
     overflow: hidden;
     background: $background-style;
@@ -127,7 +132,7 @@ html{
         border: 2px solid transparent;
         transition: 0.5s;
         span{
-            color: white;
+            color: $text-color;
         }
         &:hover{
             border: 2px solid rgb(0, 0, 0);
@@ -146,13 +151,14 @@ html{
 .content{
     display: flex;
     flex-direction: column;
+    background: $background-style;
     border-radius: $border-radius;
     margin-right: auto;
     margin-left: 5%;
     width: 80%;
     height: 80%;
     box-shadow: $box-shadow;
-    color: white;
+    color: $text-color;
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: none;
@@ -178,7 +184,7 @@ html{
         @include flex-col;
     }
     p{
-        color: white;
+        color: $text-color;
         font-size: 1rem;
         margin: 1rem;
     }
@@ -191,7 +197,6 @@ html{
     top: 24rem;
     right: 4rem;
     width: 10rem;
-    border: 2px solid white;
     border-radius: $border-radius;
     overflow: hidden;
     a{
@@ -203,7 +208,7 @@ html{
         border: 2px solid transparent;
         transition: 0.5s;
         span{
-            color: white;
+            color: $text-color;
         }
         &:hover{
             border: 2px solid rgb(0, 0, 0);
@@ -227,7 +232,7 @@ html{
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     margin: 1rem auto;
-    background: $background-style;
+    background: rgba(black, 0.7);
     padding: 1rem;
     position: relative;
     &__username{
@@ -244,10 +249,10 @@ html{
         right: 0;
         &__button{
             border: none;
-            color: white;
+            color: $text-color;
             background: rgba(red, 0.5);
             padding: 0.2rem 0.5rem;
-            border-radius: 50%;
+            border-radius: $border-radius;
             cursor: pointer;
         }
     }
@@ -276,7 +281,7 @@ html{
         box-shadow: $box-shadow;
         margin: 0.5rem auto;
         span{
-            color: white;
+            color: $text-color;
         }
         &:hover{
             border: 2px solid rgb(0, 0, 0);
@@ -315,9 +320,10 @@ html{
                 border: none;
                 padding: 1rem;
                 text-decoration: none;
-                color: white;
+                color: $text-color;
                 box-shadow: $box-shadow;
-                border-radius: 1rem;
+                border-radius: $border-radius;
+                cursor: pointer;
             }
         }
     }
@@ -326,9 +332,9 @@ html{
             margin: 0.5rem;
             padding: 1rem;
             text-decoration: none;
-            color: white;
+            color: $text-color;
             box-shadow: $box-shadow;
-            border-radius: 1rem;
+            border-radius: $border-radius;
         }
     }
 }

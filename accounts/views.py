@@ -157,6 +157,11 @@ def edit_accounts(request):
     print(context)
     return render(request, "accounts/edit_accounts.html", context)
 
+def public_account(request, user_id):
+    user_account = User.objects.filter(id=user_id)
+    context = {"user_account": user_account}
+    return render(request, "accounts/public_account.html", context)
+
 """
 'username': ['Second_user'], 
 'first_name': ['Second'], 

@@ -1,0 +1,14 @@
+{% extends "website/core_template.html" %}
+
+{% block content %}
+    {% if public_post %}
+        {% for posts in public_post reversed %}
+            <div class="post-instance">
+                <span class="post-instance__username">{{posts.user_id.username}}</span>
+                <span class="post-instance__post">{{posts.message}}</span>
+            </div>
+        {% endfor %}
+    {% else %}
+            <span class="no-content-span">No Posts yet!</span>
+    {% endif %}
+{% endblock %}
