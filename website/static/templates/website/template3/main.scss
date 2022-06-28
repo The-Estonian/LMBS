@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+
+@mixin flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+$background-style: linear-gradient(225deg,
+                                   rgba(#80a05d, 0.4), 
+                                   rgba(#000000, 0.3), 
+                                   rgba(#80a05d, 0.4), 
+                                   rgba(#000000, 0.3), 
+                                   rgba(#80a05d, 0.4));
+$box-shadow: 2px 1px 10px rgba(rgb(0, 0, 0), 0.2);
+$border-radius: 0.5rem 0;
+$text-color: #000000;
+$border-color: transparent;
+$hover-background: rgba(rgb(0, 0, 0), 0.4);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+}
+
+html{
+    height: 100%;
+    body{
+        height: 100%;
+    }
+}
+
+.container{
+    @include flex-col;
+    height: 100%;
+    background: url("./images/background-grassy.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    
+}
+
+.header{
+    position: absolute;
+    top: 2rem;
+    left: 5%;
+    a{
+        font-size: 1.2rem;
+        box-shadow: $box-shadow;
+        color: $text-color;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border: 2px solid $border-color;
+        border-radius: $border-radius;
+        text-align: center;
+        background: $background-style;
+        border: 2px solid $border-color;
+        transition: 0.5s;
+        &:hover{
+            border: 2px solid rgb(0, 0, 0);
+            background: $hover-background;
+            border-radius: $border-radius;
+        }
+    }
+    @media (max-width: 1500px){
+        display: none;
+}
+}
+
+.footer{
+    @include flex-row;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-right: auto;
+    margin-bottom: 0.5rem;
+    a{
+        box-shadow: $box-shadow;
+        width: 10rem;
+        color: $text-color;
+        text-decoration: none;
+        padding: 1rem;
+        border: 2px solid $border-color;
+        margin: 0 10%;
+        margin-right: 20%;
+        border-radius: $border-radius;
+        text-align: center;
+        background: $background-style;
+        transition: 0.5s;
+        &:hover{
+            border: 2px solid rgb(0, 0, 0);
+            background: $hover-background;
+            border-radius: $border-radius;
+        }
+        @media (max-width: 1500px){
+            margin: 0;
+            padding: 0.25rem;
+            &:first-child{
+                margin-right: 20%;
+            }
+            &:last-child{
+                margin-left: 20%;
+            }
+        }
+        @media (max-width: 585px){
+            width: 8rem;
+        }
+        @media (max-width: 465px){
+            width: 6.5rem;
+            padding: 0.12rem;
+        }
+    }
+    @media (max-width: 1500px){
+        position:static;
+        margin-top: 0.4rem;
+        margin-bottom: 0.25rem;
+    }
+    
+}
+
+.menu{
+    box-shadow: $box-shadow;
+    @include flex-col;
+    position: absolute;
+    top: 5.5rem;
+    right: 4rem;
+    width: 10rem;
+    border-radius: $border-radius;
+    overflow: hidden;
+    background: $background-style;
+    border: 2px solid transparent;
+    a{
+        background: $background-style;
+        padding: 1rem;
+        text-decoration: none;
+        width: 10rem;
+        text-align: center;
+        border: 2px solid transparent;
+        transition: 0.5s;
+        span{
+            color: $text-color;
+            
+            @media (max-width: 290px){
+                font-size: 0.8rem;
+            }
+        }
+        &:hover{
+            border: 2px solid rgb(0, 0, 0);
+            background: $hover-background;
+        }
+        @media (max-width: 700px){
+            width: 8rem;
+            padding: 0.5rem;
+        }
+        @media (max-width: 540px){
+            width: 6rem;
+            padding: 0.25rem;
+        }
+        @media (max-width: 400px){
+            width: 5rem;
+            padding: 0.12rem;
+        }
+    }
+    @media (max-width: 1500px){
+        position: static;
+        flex-direction: row;
+        margin: 0.25rem;
+        width: fit-content;
+    }
+    @media (max-width: 700px){
+        flex-direction: row;
+        margin: 0.12rem;
+    }
+    @media (max-width: 290px){
+        flex-direction: row;
+        margin: 0.05rem;
+    }
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    background: $background-style;
+    border-radius: $border-radius;
+    margin-right: auto;
+    margin-left: 5%;
+    width: 80%;
+    height: 80%;
+    box-shadow: $box-shadow;
+    color: $text-color;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    .no-content-span{
+        height: 100%;
+        @include flex-col;
+    }
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    @media (max-width: 1500px){
+        width: 95%;
+        height: 95%;
+        margin: auto;
+    }
+}
+
+.form-signup,
+.form-login,
+.form-new-post{
+    @include flex-col;
+    height: 100%;
+    label{
+        @include flex-col;
+    }
+    p{
+        color: $text-color;
+        font-size: 1rem;
+        margin: 1rem;
+    }
+    &__textarea{
+        height: 20vh;
+        width: 30vw;
+        padding: 1rem;
+        resize: none;
+        outline: none;
+        border-radius: $border-radius; 
+        box-shadow: $box-shadow;
+        @media (max-width: 1100px){
+            height: 30vh;
+            width: 40vw;
+        }
+        @media (max-width: 850px){
+            height: 20vh;
+            width: 50vw;
+        }
+        @media (max-width: 550px){
+            height: 30vh;
+            width: 90vw;
+        }
+    }
+    &__name{
+        margin: 1rem;
+    }
+    &__submit{
+        margin: 1rem;
+        cursor: pointer;
+        padding: 1rem;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+    }
+}
+
+.add-post__pc{
+    @include flex-col;
+    box-shadow: $box-shadow;
+    position: absolute;
+    text-align: center;
+    top: 22rem;
+    right: 4rem;
+    width: 10rem;
+    border-radius: $border-radius;
+    overflow: hidden;
+    border: 2px solid transparent;
+    a{
+        background: $background-style;
+        text-decoration: none;
+        padding: 1rem;
+        width: 100%;
+        border: 2px solid transparent;
+        transition: 0.5s;
+        color: $text-color;
+        border-radius: $border-radius;
+        &:hover{
+            border: 2px solid rgb(0, 0, 0);
+            background: $hover-background;
+        }
+    }
+    @media (max-width: 1500px){
+        display: none;
+    }
+}
+
+.add-post__mob{
+    @include flex-col;
+    box-shadow: $box-shadow;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    bottom: 0.15rem;
+    width: 7rem;
+    padding: 0.25rem;
+    border-radius: $border-radius;
+    overflow: hidden;
+    display: none;
+    a{
+        background: $background-style;
+        text-decoration: none;
+        
+        width: 100%;
+        border: 2px solid transparent;
+        transition: 0.5s;
+        color: $text-color;
+        &:hover{
+            border: 2px solid rgb(0, 0, 0);
+            background: $hover-background;
+            border-radius: $border-radius;
+        }
+    }
+    @media (max-width: 1500px){
+        display: flex;
+    }
+    @media (max-width: 465px){
+        width: 6.5rem;
+        padding: 0.12rem;
+    }
+}
+
+.post-instance{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    text-align: center;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    margin: 1rem auto;
+    background: $background-style;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    position: relative;
+    &__username{
+        position: absolute;
+        bottom: 0.2rem;
+        left: 0.2rem;
+        padding: 0.25rem;
+        a{
+            transition: 0.7s;
+            text-decoration: none;
+            color: $text-color;
+            border-bottom: 1px solid transparent;
+            &:hover{
+                border-bottom: 1px solid white;
+            }
+        }
+    }
+    &__post{
+        width: 90%;
+    }
+    &__delete{
+        position: absolute;
+        top: 0;
+        right: 0;
+        &__button{
+            border: none;
+            color: $text-color;
+            background: rgba(#fffab4, 0.5);
+            padding: 0.2rem 0.5rem;
+            border-radius: 0 $border-radius;
+            cursor: pointer;
+        }
+    }
+    &__edit{
+        position: absolute;
+        top: 0;
+        right: 1.6rem;
+        border: none;
+        color: $text-color;
+        background: rgba(#fffab4, 0.5);
+        padding: 0.2rem 0.5rem;
+        border-radius: $border-radius;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.registration-success{
+    @include flex-col;
+    height: 100%;
+    &__content{
+        padding: 1rem;
+        text-align: center;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        margin: 0.5rem auto;
+        background: $background-style;
+    }
+    &__login{
+        background: $background-style;
+        padding: 1rem;
+        text-decoration: none;
+        width: 10rem;
+        text-align: center;
+        border: 2px solid transparent;
+        transition: 0.5s;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        margin: 0.5rem auto;
+        span{
+            color: $text-color;
+        }
+        &:hover{
+            border: 2px solid rgb(0, 0, 0);
+            background: $hover-background;
+        }
+    }
+}
+
+.user-info{
+    @include flex-col;
+    height: 100%;
+    &__container{
+        margin: 0.25rem;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        background: rgba(black, 0.4);
+        @include flex-col;
+        text-align: center;
+        &__span{
+            width: 100%;
+            padding: 0.25rem;
+            border-bottom: 1px white solid;
+        }
+        &__p{
+            padding: 1rem;
+            width: 14rem;
+            text-align: center;
+        }
+    }
+}
+
+.hidden{
+    display: none;
+    visibility: hidden;
+}
+
+.edit-account{
+    height: 100%;
+    form{
+        height: 100%;
+        @include flex-col;
+    }
+}
+
+.account-buttons{
+    @include flex-row;
+    &__form{
+        @include flex-col;
+        height: 100%;
+        &__delete{
+            &__button{
+                margin: 0.5rem;
+                background: rgba(black, 0.4);
+                border: none;
+                padding: 1rem;
+                text-decoration: none;
+                color: $text-color;
+                box-shadow: $box-shadow;
+                border-radius: $border-radius;
+                cursor: pointer;
+            }
+        }
+    }
+    &__edit{
+        &__button{
+            background: rgba(black, 0.4);
+            margin: 0.5rem;
+            padding: 1rem;
+            text-decoration: none;
+            color: $text-color;
+            box-shadow: $box-shadow;
+            border-radius: $border-radius;
+        }
+    }
+}
