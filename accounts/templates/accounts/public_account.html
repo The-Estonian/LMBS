@@ -14,7 +14,7 @@
                 <p>User is active?: {{value.is_active}}</p>
                 <p>User Last login: {{value.last_login}}</p>
                 <p>User joined us: {{value.date_joined}}</p>
-                <a href="{% url 'public_posts' value.id %}">User posts</a>
+                <a class="account-buttons__edit__button" href="{% url 'public_posts' value.id %}">User posts</a>
             </div>
         {% endfor %}
     {% endif %}

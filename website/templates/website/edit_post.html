@@ -4,11 +4,11 @@
     <form class="form-new-post" method="post">
         {% csrf_token %}
         <label for="new_post">
-            <span>Edit Post</span>
+            <span class="form-new-post__name">Edit Post</span>
             {% for post in post_edit %}
-            <textarea name="edit_post" id="edit_post" rows="4" cols="50">{{post.message}}</textarea>
+            <textarea class="form-new-post__textarea" name="edit_post" id="edit_post">{{post.message}}</textarea>
             {% endfor %}
         </label>
-        <input type="submit" value="Edit Post!">
+        <input class="form-new-post__submit" type="submit" value="Edit Post!">
     </form>
 {% endblock %}

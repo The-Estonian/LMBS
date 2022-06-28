@@ -4,9 +4,9 @@
     <form class="form-new-post" method="post">
         {% csrf_token %}
         <label for="new_post">
-            <span>Add Post</span>
-            <textarea name="new_post" id="new_post" rows="4" cols="50"></textarea>
+            <span class="form-new-post__name">Add Post</span>
+            <textarea class="form-new-post__textarea" name="new_post" id="new_post"></textarea>
         </label>
-        <input type="submit" value="Add Post!">
+        <input class="form-new-post__submit" type="submit" value="Add Post!">
     </form>
 {% endblock %}

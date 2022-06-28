@@ -43,6 +43,12 @@ def user_posts(request):
 def edit_post(request, post_id):
     post_to_edit = Posts.objects.filter(id=post_id)
     context = {"post_edit": post_to_edit}
+    if request.method == "POST":
+        post_edit = request.POST["edit_post"]
+        post_to_edit = Posts.objects.get(id=post_id)
+        post_to_edit.message = post_edit
+        post_to_edit.save()
+        return redirect("user_posts")
     return render(request, "website/edit_post.html", context)
 
 def public_posts(request, user_id):
