@@ -1,31 +1,31 @@
 {% extends "website/core_template.html" %}
-
+{% load static %}
 {% block content %}
     {% if account_info %}
         {% for value in account_info %}
             <div class="user-info">
                 <div class="user-info__container">
-                    <span class="user-info__container__span">Username:</span>
+                    <span class="user-info__container__span">Username</span>
                     <p class="user-info__container__p">{{value.username}}</p>
                 </div>
                 <div class="user-info__container">
-                    <span class="user-info__container__span">First name:</span>
+                    <span class="user-info__container__span">First name</span>
                     <p class="user-info__container__p">{{value.first_name}}</p>
                 </div>
                 <div class="user-info__container">
-                    <span class="user-info__container__span">Last name:</span>
+                    <span class="user-info__container__span">Last name</span>
                     <p class="user-info__container__p">{{value.last_name}}</p>
                 </div>
                 <div class="user-info__container">
-                    <span class="user-info__container__span">Email:</span>
+                    <span class="user-info__container__span">Email</span>
                     <p class="user-info__container__p">{{value.email}}</p>
                 </div>
                 <div class="user-info__container">
-                    <span class="user-info__container__span">Superuser?:</span>
+                    <span class="user-info__container__span">Administrator</span>
                     <p class="user-info__container__p">{{value.is_superuser}}</p>
                 </div>
                 <div class="user-info__container">
-                    <span class="user-info__container__span">Last login:</span>
+                    <span class="user-info__container__span">Last login</span>
                     <p class="user-info__container__p">{{value.last_login}}</p>
                 </div>
                     <div class="account-buttons">
@@ -40,6 +40,30 @@
                         <input class="account-buttons__form__delete__button" type="submit" value="Delete">
                     </form>
                 </div>
+                <div class="templates">
+                    <form method="post">
+                        {% csrf_token %}
+                            <label class="templates__label" for="one">
+                                <input class="hidden" id="one" type="text" name="orange">
+                                <input class="templates__label__input" type="image" src="{% static 'templates/website/images/orange1.jpg' %}" alt="orange template">
+                            </label>
+                    </form>
+                    <form method="post">
+                        {% csrf_token %}
+                            <label class="templates__label" for="two">
+                                <input class="hidden" id="two" type="text" name="green">
+                                <input class="templates__label__input" type="image" src="{% static 'templates/website/images/green2.jpg' %}" alt="green template">
+                            </label>
+                    </form>
+                    <form method="post">
+                        {% csrf_token %}
+                            <label class="templates__label" for="three">
+                                <input class="hidden" id="three" type="text" name="purple">
+                                <input class="templates__label__input" type="image" src="{% static 'templates/website/images/purple3.jpg' %}" alt="purple template">
+                            </label>
+                    </form>
+                    </div>
+                </form>
             </div>
         {% endfor %}
     {% endif %}

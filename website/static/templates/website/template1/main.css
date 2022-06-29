@@ -38,8 +38,21 @@ html body {
 }
 
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
-  top: 2rem;
+  top: 1rem;
   left: 5%;
 }
 
@@ -344,6 +357,13 @@ html body {
           align-items: center;
 }
 
+.form-signup label input,
+.form-login label input,
+.form-new-post label input {
+  padding: 0.25rem;
+  outline: none;
+}
+
 .form-signup p,
 .form-login p,
 .form-new-post p {
@@ -407,6 +427,9 @@ html body {
   border-radius: 0.25rem;
   -webkit-box-shadow: 2px 1px 10px #a6eaff;
           box-shadow: 2px 1px 10px #a6eaff;
+  background: linear-gradient(225deg, rgba(247, 54, 54, 0.4), rgba(0, 0, 0, 0.6), rgba(247, 54, 54, 0.4), rgba(0, 0, 0, 0.6), rgba(247, 54, 54, 0.4));
+  border: none;
+  color: #fff6f6;
 }
 
 .add-post__pc {
@@ -687,6 +710,13 @@ html body {
   text-align: center;
 }
 
+@media (max-height: 700px) {
+  .user-info {
+    height: auto;
+    padding-top: 1rem;
+  }
+}
+
 .hidden {
   display: none;
   visibility: hidden;
@@ -768,5 +798,28 @@ html body {
           box-shadow: 2px 1px 10px #a6eaff;
   border-radius: 0.25rem;
   background: rgba(0, 0, 0, 0.7);
+}
+
+.templates {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.templates__label__input {
+  height: 3rem;
+  width: 5rem;
+  margin: 0.25rem;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */

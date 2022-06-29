@@ -15,16 +15,19 @@
 }
 
 $background-style: linear-gradient(225deg,
-                                   rgba(#80a05d, 0.4), 
-                                   rgba(#000000, 0.3), 
-                                   rgba(#80a05d, 0.4), 
-                                   rgba(#000000, 0.3), 
-                                   rgba(#80a05d, 0.4));
+                                   rgba(#330066, 0.8), 
+                                   rgba(#330066, 0.6), 
+                                   rgba(#330066, 0.8), 
+                                   rgba(#330066, 0.6), 
+                                   rgba(#330066, 0.8),
+                                   rgba(#330066, 0.6),
+                                   rgba(#330066, 0.8));
 $box-shadow: 2px 1px 10px rgba(rgb(0, 0, 0), 0.2);
 $border-radius: 0.5rem 0;
-$text-color: #000000;
+$text-color: #ffffff;
 $border-color: transparent;
-$hover-background: rgba(rgb(0, 0, 0), 0.4);
+$hover-background: rgba(rgb(255, 255, 255), 0.4);
+$hover-textColor: black;
 
 *{
     margin: 0;
@@ -44,7 +47,7 @@ html{
 .container{
     @include flex-col;
     height: 100%;
-    background: url("./images/background-grassy.jpg");
+    background: $background-style;
     background-size: cover;
     background-position: 50% 50%;
     
@@ -69,6 +72,7 @@ html{
         &:hover{
             border: 2px solid rgb(0, 0, 0);
             background: $hover-background;
+            color: $hover-textColor;
             border-radius: $border-radius;
         }
     }
@@ -100,6 +104,7 @@ html{
         &:hover{
             border: 2px solid rgb(0, 0, 0);
             background: $hover-background;
+            color: $hover-textColor;
             border-radius: $border-radius;
         }
         @media (max-width: 1500px){
@@ -147,14 +152,15 @@ html{
         text-align: center;
         border: 2px solid transparent;
         transition: 0.5s;
+        color: $text-color;
         span{
-            color: $text-color;
             
             @media (max-width: 290px){
                 font-size: 0.8rem;
             }
         }
         &:hover{
+            color: $hover-textColor;
             border: 2px solid rgb(0, 0, 0);
             background: $hover-background;
         }
@@ -190,13 +196,13 @@ html{
 .content{
     display: flex;
     flex-direction: column;
-    background: $background-style;
+    // background: $background-style;
     border-radius: $border-radius;
     margin-right: auto;
     margin-left: 5%;
     width: 80%;
     height: 80%;
-    box-shadow: $box-shadow;
+    // box-shadow: $box-shadow;
     color: $text-color;
     overflow-y: auto;
     overflow-x: hidden;
@@ -222,6 +228,9 @@ html{
     height: 100%;
     label{
         @include flex-col;
+        input{
+            padding: 0.25rem;
+        }
     }
     p{
         color: $text-color;
@@ -258,6 +267,9 @@ html{
         padding: 1rem;
         border-radius: $border-radius;
         box-shadow: $box-shadow;
+        background: $background-style;
+        border: none;
+        color: $text-color;
     }
 }
 
@@ -284,6 +296,7 @@ html{
         &:hover{
             border: 2px solid rgb(0, 0, 0);
             background: $hover-background;
+            color: $hover-textColor;
         }
     }
     @media (max-width: 1500px){
@@ -314,6 +327,7 @@ html{
         &:hover{
             border: 2px solid rgb(0, 0, 0);
             background: $hover-background;
+            color: $hover-textColor;
             border-radius: $border-radius;
         }
     }
@@ -411,6 +425,7 @@ html{
         &:hover{
             border: 2px solid rgb(0, 0, 0);
             background: $hover-background;
+            color: $hover-textColor;
         }
     }
 }
@@ -435,6 +450,10 @@ html{
             width: 14rem;
             text-align: center;
         }
+    }
+    @media (max-height: 700px){
+        height: auto;
+        padding-top: 1rem;
     }
 }
 
@@ -482,3 +501,16 @@ html{
         }
     }
 }
+
+.templates{
+    @include flex-row;
+    &__label{
+        &__input{
+            height: 3rem;
+            width: 5rem;
+            margin: 0.25rem;
+            cursor: pointer;
+        }
+    }
+}
+

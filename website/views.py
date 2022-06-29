@@ -1,9 +1,15 @@
 from django.shortcuts import render, redirect
-from .models import Posts
+from .models import Posts, Templates
 from django.contrib.auth.models import User
 
 
 # Create your views here.
+
+def core_templates(request):
+    if request.user.id:
+        return {"templates": Templates.objects.get(user_id=request.user.id)}
+    else:
+        return {"templates": Templates.objects.get(user_id=1)}
 
 def index(request):
     last_5_posts = Posts.objects.all().order_by("-id")[:5]
