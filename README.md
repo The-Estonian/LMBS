@@ -1,7 +1,6 @@
 # LMBS
-Leaf Micro Blogging Systems. For all the potatoes out there!
+Leaf Micro Blogging Systems!
 
-#Simple system build on django that features simple CRUD:
 ## Account:
 * Create
 * View
