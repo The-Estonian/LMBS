@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.core.exceptions import ValidationError
 from website.models import TemplateChoice, Templates
+from django.contrib.auth.decorators import login_required
 from re import match
 
 # Create your views here.
@@ -28,6 +29,7 @@ def name_validator(variable):
 def name_cleaner(variable):
     return variable.capitalize()
 
+@login_required(login_url="log_in")
 def accounts(request):
     current_user = request.user.id
     fetch_user = User.objects.filter(id=current_user)
@@ -63,7 +65,7 @@ def log_out(request):
 def log_in(request):
     context = {}
     if request.method == "POST":
-        email = request.POST["email"]
+        email = request.POST["email"].lower()
         if email_validator(email):
             try:
                 username = User.objects.get(email=email)
@@ -97,7 +99,7 @@ def sign_up(request):
     context = {}
     if request.method == "POST":
         username = request.POST["username"]
-        email = request.POST["email"]
+        email = request.POST["email"].lower()
         password = request.POST["password"]
         password2 = request.POST["password2"]
         first_name = request.POST["first_name"]
@@ -136,6 +138,7 @@ def sign_up(request):
 def reg_success(request):
     return render(request, "accounts/reg_success.html")
 
+@login_required
 def edit_accounts(request):
     current_user = request.user.id
     fetch_user = User.objects.filter(id=current_user)
@@ -176,6 +179,7 @@ def edit_accounts(request):
     print(context)
     return render(request, "accounts/edit_accounts.html", context)
 
+@login_required
 def public_account(request, user_id):
     user_account = User.objects.filter(id=user_id)
     context = {"user_account": user_account}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Posts, Templates
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -25,6 +26,7 @@ def all_posts(request):
         post_instance.delete()
     return render(request, "website/all_posts.html", context)
 
+@login_required(login_url="log_in")
 def add_post(request):
     if request.method == "POST":
         current_poster_id = request.user.id
@@ -36,6 +38,7 @@ def add_post(request):
         return redirect("user_posts")
     return render(request, "website/add_post.html")
 
+@login_required(login_url="log_in")
 def user_posts(request):
     current_user_id = request.user.id
     current_user_posts = Posts.objects.filter(user_id=current_user_id)
@@ -46,6 +49,7 @@ def user_posts(request):
         post_instance.delete()
     return render(request, "website/user_posts.html", context)
 
+@login_required(login_url="log_in")
 def edit_post(request, post_id):
     post_to_edit = Posts.objects.filter(id=post_id)
     context = {"post_edit": post_to_edit}
