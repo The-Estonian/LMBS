@@ -711,11 +711,6 @@ html body {
 }
 
 .edit-account {
-  height: 100%;
-}
-
-.edit-account form {
-  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -729,6 +724,74 @@ html body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100%;
+}
+
+.edit-account__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.edit-account__form__container {
+  padding: 0.1rem;
+  margin: 0.25rem;
+  border-radius: 2rem 0;
+  -webkit-box-shadow: 2px 1px 10px white;
+          box-shadow: 2px 1px 10px white;
+  background: rgba(0, 0, 0, 0.4);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.edit-account__form__container__span {
+  width: 100%;
+  padding: 0.25rem;
+  border-bottom: 1px white solid;
+}
+
+.edit-account__form__container__p {
+  border-radius: 2rem 0;
+  outline: none;
+  padding: 0.4rem;
+  width: 14rem;
+  text-align: center;
+}
+
+.edit-account__form__passwords {
+  border-radius: 2rem 0;
+  -webkit-box-shadow: 2px 1px 10px white;
+          box-shadow: 2px 1px 10px white;
+  background: linear-gradient(225deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+}
+
+@media (max-height: 700px) {
+  .edit-account {
+    height: auto;
+    padding-top: 1rem;
+  }
 }
 
 .account-buttons {

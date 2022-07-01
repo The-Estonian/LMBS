@@ -4,42 +4,42 @@
     {% if account_info %}
         {% for value in account_info %}
             <div class="edit-account">
-                <form method="post">
+                <form class="edit-account__form" method="post">
                     {% csrf_token %}
-                    <label for="user_id">
-                        <input class="hidden" type="text" name="user_id" value="{{value.id}}">
+                        <label for="user_id">
+                            <input class="hidden" type="text" name="user_id" value="{{value.id}}">
+                        </label>
+                    <label class="edit-account__form__container" for="username">
+                        <span class="edit-account__form__container__span">Username:</span>
+                        <input class="edit-account__form__container__p" type="text" name="username" value="{{value.username}}">
                     </label>
-                    <p>User ID: {{value.id}}</p>
-                    <label for="username">
-                        <span>Username:</span>
-                        <input type="text" name="username" value="{{value.username}}">
+                    <label class="edit-account__form__container" for="first_name">
+                        <span class="edit-account__form__container__span">First name:</span>
+                        <input class="edit-account__form__container__p" type="text" name="first_name" value="{{value.first_name}}">
                     </label>
-                    <label for="first_name">
-                        <span>First name:</span>
-                        <input type="text" name="first_name" value="{{value.first_name}}">
+                    <label class="edit-account__form__container" for="last_name">
+                        <span class="edit-account__form__container__span">Last name:</span>
+                        <input class="edit-account__form__container__p" type="text" name="last_name" value="{{value.last_name}}">
                     </label>
-                    <label for="last_name">
-                        <span>Last name:</span>
-                        <input type="text" name="last_name" value="{{value.last_name}}">
+                    <label class="edit-account__form__container" for="email">
+                        <span class="edit-account__form__container__span">Email:</span>
+                        <input class="edit-account__form__container__p" type="email" name="email" value="{{value.email}}">
                     </label>
-                    <label for="email">
-                        <span>Email:</span>
-                        <input type="email" name="email" value="{{value.email}}">
-                    </label>
-                    <span>Change password:</span>
-                    <label for="old_password">
-                        <span>Old password:</span>
-                        <input type="password" name="old_password">
-                    </label>
-                    <label for="new_password">
-                        <span>New password:</span>
-                        <input type="password" name="new_password">
-                    </label>
-                    <label for="new2_password">
-                        <span>Repeat password:</span>
-                        <input type="password" name="new2_password">
-                    </label>
-                    <input type="submit" value="Edit">
+                    <div class="edit-account__form__passwords">
+                        <label class="edit-account__form__container" for="old_password">
+                            <span class="edit-account__form__container__span">Old password:</span>
+                            <input class="edit-account__form__container__p" type="password" name="old_password">
+                        </label>
+                        <label class="edit-account__form__container" for="new_password">
+                            <span class="edit-account__form__container__span">New password:</span>
+                            <input class="edit-account__form__container__p" type="password" name="new_password">
+                        </label>
+                        <label class="edit-account__form__container" for="new2_password">
+                            <span class="edit-account__form__container__span">Repeat password:</span>
+                            <input class="edit-account__form__container__p" type="password" name="new2_password">
+                        </label>
+                    </div>
+                    <input class="account-buttons__form__delete__button" type="submit" value="Edit">
                     {% if email %}
                     <span>{{email}}</span>
                     {% endif %}

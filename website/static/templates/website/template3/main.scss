@@ -457,17 +457,47 @@ html{
     }
 }
 
+.edit-account{
+    @include flex-col;
+    height: 100%;
+    &__form{
+        @include flex-col;
+        &__container{
+            padding: 0.1rem;
+            margin: 0.25rem;
+            border-radius: $border-radius;
+            box-shadow: $box-shadow;
+            background: rgba(black, 0.4);
+            @include flex-col;
+            text-align: center;
+            &__span{
+                width: 100%;
+                padding: 0.25rem;
+                border-bottom: 1px white solid;
+            }
+            &__p{
+                border-radius: $border-radius;
+                outline: none;
+                padding: 0.4rem;
+                width: 14rem;
+                text-align: center;
+            }
+    }
+    &__passwords{
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        background: $background-style;
+    }
+    }
+    @media (max-height: 700px){
+        height: auto;
+        padding-top: 1rem;
+    }
+}
+
 .hidden{
     display: none;
     visibility: hidden;
-}
-
-.edit-account{
-    height: 100%;
-    form{
-        height: 100%;
-        @include flex-col;
-    }
 }
 
 .account-buttons{
