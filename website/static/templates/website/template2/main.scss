@@ -24,7 +24,8 @@ $box-shadow: 2px 1px 10px white;
 $border-radius: 2rem 0;
 $text-color: #ffffff;
 $border-color: transparent;
-$hover-background: rgba(red, 0.5);
+$hover-background: rgba(#e4a93c, 0.8);
+$hover-textColor: #edf6f9;
 
 *{
     margin: 0;
@@ -70,6 +71,7 @@ html{
             border: 2px solid rgb(0, 0, 0);
             background: $hover-background;
             border-radius: $border-radius;
+            color: $hover-textColor;
         }
     }
     @media (max-width: 1500px){
@@ -96,11 +98,11 @@ html{
         border-radius: $border-radius;
         text-align: center;
         background: $background-style;
-        transition: 0.5s;
         &:hover{
             border: 2px solid rgb(0, 0, 0);
             background: $hover-background;
             border-radius: $border-radius;
+            color: $hover-textColor;
         }
         @media (max-width: 1500px){
             margin: 0;
@@ -155,8 +157,10 @@ html{
             }
         }
         &:hover{
-            border: 2px solid rgb(0, 0, 0);
             background: $hover-background;
+            span{
+                color: $hover-textColor;
+            }
         }
         @media (max-width: 700px){
             width: 8rem;
@@ -170,6 +174,9 @@ html{
             width: 5rem;
             padding: 0.12rem;
         }
+    }
+    &:hover{
+        border: 2px solid rgb(0, 0, 0);
     }
     @media (max-width: 1500px){
         position: static;

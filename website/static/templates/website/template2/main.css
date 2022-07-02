@@ -60,8 +60,9 @@ html body {
 
 .header a:hover {
   border: 2px solid black;
-  background: rgba(255, 0, 0, 0.5);
+  background: rgba(228, 169, 60, 0.8);
   border-radius: 2rem 0;
+  color: #edf6f9;
 }
 
 @media (max-width: 1500px) {
@@ -104,14 +105,13 @@ html body {
   border-radius: 2rem 0;
   text-align: center;
   background: linear-gradient(225deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
 }
 
 .footer a:hover {
   border: 2px solid black;
-  background: rgba(255, 0, 0, 0.5);
+  background: rgba(228, 169, 60, 0.8);
   border-radius: 2rem 0;
+  color: #edf6f9;
 }
 
 @media (max-width: 1500px) {
@@ -196,8 +196,11 @@ html body {
 }
 
 .menu a:hover {
-  border: 2px solid black;
-  background: rgba(255, 0, 0, 0.5);
+  background: rgba(228, 169, 60, 0.8);
+}
+
+.menu a:hover span {
+  color: #edf6f9;
 }
 
 @media (max-width: 700px) {
@@ -219,6 +222,10 @@ html body {
     width: 5rem;
     padding: 0.12rem;
   }
+}
+
+.menu:hover {
+  border: 2px solid black;
 }
 
 @media (max-width: 1500px) {
@@ -457,7 +464,7 @@ html body {
 
 .add-post__pc a:hover {
   border: 2px solid black;
-  background: rgba(255, 0, 0, 0.5);
+  background: rgba(228, 169, 60, 0.8);
 }
 
 @media (max-width: 1500px) {
@@ -505,7 +512,7 @@ html body {
 
 .add-post__mob a:hover {
   border: 2px solid black;
-  background: rgba(255, 0, 0, 0.5);
+  background: rgba(228, 169, 60, 0.8);
   border-radius: 2rem 0;
 }
 
@@ -644,7 +651,7 @@ html body {
 
 .registration-success__login:hover {
   border: 2px solid black;
-  background: rgba(255, 0, 0, 0.5);
+  background: rgba(228, 169, 60, 0.8);
 }
 
 .user-info {
