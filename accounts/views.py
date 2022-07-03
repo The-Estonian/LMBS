@@ -179,7 +179,7 @@ def edit_accounts(request):
     print(context)
     return render(request, "accounts/edit_accounts.html", context)
 
-@login_required
+
 def public_account(request, user_id):
     user_account = User.objects.filter(id=user_id)
     context = {"user_account": user_account}

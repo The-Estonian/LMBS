@@ -21,7 +21,7 @@ def all_posts(request):
     all_posts = Posts.objects.all()
     context = {"all_posts":all_posts}
     if request.method == "POST":
-        post_id_to_delete =request.POST["delete_post"]
+        post_id_to_delete = request.POST["delete_post"]
         post_instance = Posts.objects.get(id=post_id_to_delete)
         post_instance.delete()
     return render(request, "website/all_posts.html", context)
@@ -34,7 +34,6 @@ def add_post(request):
         new_post_message = request.POST["new_post"]
         new_post = Posts.objects.create(user_id=current_poster_instance, message=new_post_message)
         new_post.save()
-        print(f"User {current_poster_instance.username} posts {new_post_message}")
         return redirect("user_posts")
     return render(request, "website/add_post.html")
 
