@@ -28,8 +28,8 @@
             <input type="text" name="last_name">
         </label>
         <input class="form-signup__submit" type="submit" value="Sign Up!">
-        {% if email %}
-        <span>{{email}}</span>
+        {% if email_error %}
+        <span>{{email_error}}</span>
         {% endif %}
         {% if username_error %}
         <span>{{username_error}}</span>

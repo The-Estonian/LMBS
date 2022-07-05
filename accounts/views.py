@@ -16,7 +16,7 @@ def email_validator(variable):
 
 def username_validator(variable):
     pat = "^[a-zA-Z0-9_.-]+$"
-    if match(pat, variable):
+    if match(pat, variable) and len(variable) > 5:
         return True
     return False
 
@@ -45,17 +45,14 @@ def accounts(request):
             template_choice = TemplateChoice.objects.get(id=1)
             user_template.template_id = template_choice
             user_template.save()
-            print(user_template.template_id)
         elif "green" in request.POST:
             template_choice = TemplateChoice.objects.get(id=2)
             user_template.template_id = template_choice
             user_template.save()
-            print(user_template.template_id)
         elif "purple" in request.POST:
             template_choice = TemplateChoice.objects.get(id=3)
             user_template.template_id = template_choice
             user_template.save()
-            print(user_template.template_id)
     return render(request, "accounts/accounts.html", context)
 
 def log_out(request):
@@ -70,18 +67,12 @@ def log_in(request):
             try:
                 username = User.objects.get(email=email)
                 password = request.POST["password"]
-                try:
-                    user = authenticate(request, username=username, password=password)
-                    if user is not None:
-                        login(request, user)
-                        return redirect("user_posts")
-                    else:
-                        password_error = {"password_error": "Account and Password do not match."}
-                        context.update(password_error)
-                        return render(request, "accounts/login.html", context)
-
-                except:
-                    password_error = {"password_match": "No account in our system with the Email and Password that you provided!"}
+                user = authenticate(request, username=username, password=password)
+                if user is not None:
+                    login(request, user)
+                    return redirect("user_posts")
+                else:
+                    password_error = {"password_error": "Account and Password do not match."}
                     context.update(password_error)
                     return render(request, "accounts/login.html", context)
             except:
@@ -92,7 +83,6 @@ def log_in(request):
             email_error = {"email": "Your email did not pass server validation. Please enter a correct email!"}
             context.update(email_error)
             return render(request, "accounts/login.html", context)
-        
     return render(request, "accounts/login.html")
 
 def sign_up(request):
@@ -122,15 +112,13 @@ def sign_up(request):
                         name_error = {"name_error": "First and Last name can only contain letters!"}
                         context.update(name_error)
                 else:
-                    username_error = {"username_error": "Please use only numbers and Upper/Lower case letters for username!"}
+                    username_error = {"username_error": "Minimum 6 letters and use only numbers and Upper/Lower case letters for username!"}
                     context.update(username_error)
             else:
-                print("Password error")
                 password_error = {"password_match": "Your passwords did not match or password too short. Min 6 characters!"}
                 context.update(password_error)
         else:
-            print("Email error")
-            email_error = {"email": "Your email did not pass server validation. Please enter a correct email!"}
+            email_error = {"email_error": "Your email did not pass server validation. Please enter a correct email!"}
             context.update(email_error)
 
     return render(request, "accounts/sign_up.html", context)
@@ -176,7 +164,6 @@ def edit_accounts(request):
         else:
             wrong_password = {"wrong_password": "Please provide account password to make changes!"}
             context.update(wrong_password)
-    print(context)
     return render(request, "accounts/edit_accounts.html", context)
 
 
@@ -185,12 +172,4 @@ def public_account(request, user_id):
     context = {"user_account": user_account}
     return render(request, "accounts/public_account.html", context)
 
-"""
-'username': ['Second_user'], 
-'first_name': ['Second'], 
-'last_name': ['User'], 
-'email': ['Second@user.com'], 
-'old_password': ['asd'], 
-'new_password': ['ssad'], 
-'new2_password': ['ssad']}>
-"""
+

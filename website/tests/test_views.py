@@ -21,6 +21,8 @@ class ViewTests(TestCase):
         self.all_posts = reverse("all_posts")
         self.add_post = reverse("add_post")  
         self.user_posts = reverse("user_posts")  
+        self.edit_post = reverse("edit_post", args=[1])  
+        self.public_posts = reverse("public_posts", args=[2])  
 
         self.user1 = User.objects.create_user(id=1, username="test1", password="test1")
         self.user2 = User.objects.create_user(id=2, username="test2", password="test2")
@@ -42,7 +44,8 @@ class ViewTests(TestCase):
 
     def test_core_templates_anon(self):
         """
-        Test to check if default template extension is loaded for the site.
+        Tests:
+        Test if default template extension is loaded for the site.
         """
         self.request = self.factory.get("")
         self.request.user = AnonymousUser()
@@ -51,6 +54,7 @@ class ViewTests(TestCase):
 
     def test_core_templates(self):
         """
+        Test:
         Test to see if user picked template extension is being loaded for the site.
         """
         self.request = self.factory.get("")
@@ -60,8 +64,9 @@ class ViewTests(TestCase):
 
     def test_index(self):
         """
-        Test if connection is OK, 
-        correct template is loaded
+        Tests:
+        Test if connection is OK
+        Test if correct template is loaded
         """
         request = self.factory.get(self.index)
         request.user = AnonymousUser()
@@ -72,9 +77,10 @@ class ViewTests(TestCase):
 
     def test_all_posts_GET(self):
         """
-        Test if connection is OK, 
-        correct template is loaded, 
-        correct models are forwarded by context
+        Tests:
+        Test if connection is OK
+        Test if correct template is loaded
+        Test if correct models are forwarded by context
         """
         response = self.client.get(self.all_posts)
         self.assertEquals(response.status_code, 200)
@@ -83,6 +89,7 @@ class ViewTests(TestCase):
 
     def test_all_posts_POST(self):
         """
+        Tests:
         Test if correct Model and ID of that Model is deleted
         """
         request = self.factory.get(self.all_posts)
@@ -95,10 +102,11 @@ class ViewTests(TestCase):
         with self.assertRaises(Posts.DoesNotExist):
             Posts.objects.get(id=1)
 
-    def test_add_post(self):
+    def test_add_post_GET(self):
         """
-        Test if connection is OK, 
-        correct template is loaded
+        Tests:
+        Test if connection is OK
+        Test if correct template is loaded
         """
         request = self.factory.get(self.add_post)
         request.user = self.user1
@@ -111,8 +119,9 @@ class ViewTests(TestCase):
 
     def test_add_post_POST(self):
         """
-        Test if connection redirect is OK, 
-        if correct Module object is created with correct input
+        Tests:
+        Test if connection redirect is OK
+        Test if correct Module object is created with correct input
         """
         request = self.factory.get(self.add_post)
         request.user = self.user1
@@ -127,8 +136,10 @@ class ViewTests(TestCase):
 
     def test_user_posts_POST(self):
         """
-        Test if connection is OK, if correct template is used, 
-        if the right Module object is deleted with correct ID
+        Tests:
+        Test if connection is OK
+        Test if correct template is used
+        Test if the right Module object is deleted with correct ID
         """
         request = self.factory.get(self.user_posts)
         request.user = self.user1
@@ -142,4 +153,37 @@ class ViewTests(TestCase):
             render_to_string("website/user_posts.html")
         with self.assertRaises(Posts.DoesNotExist):
             Posts.objects.get(id=2)
+
+    def test_edit_post_GET(self):
+        """
+        Tests:
+        Test if connection is OK
+        Test if correct template is used
+        """
+        request = self.factory.get(self.edit_post)
+        request.user = self.user1
+        request.method = "GET"
+        response = edit_post(request, 1)
+        with self.assertTemplateUsed("website/edit_post.html"):
+            render_to_string("website/edit_post.html")
+        self.assertEquals(response.status_code, 200)
+
+    def test_edit_post_POST(self):
+        request = self.factory.get(self.edit_post)
+        request.user = self.user1
+        request.method = "POST"
+        request.POST = {
+            "edit_post" : "edited_post"
+        }
+        self.assertEquals(Posts.objects.get(id=1).message, "testMessage")
+        response = edit_post(request, 1)
+        self.assertEquals(Posts.objects.get(id=1).message, "edited_post")
+        self.assertEquals(response.status_code, 302)
+
+    def test_public_posts(self):
+        response = self.client.get(self.public_posts)
+        self.assertEquals(response.context["public_post"][0].user_id, self.user2)
+        self.assertEquals(response.status_code, 200)
+        with self.assertTemplateUsed("website/public_posts.html"):
+            render_to_string("website/public_posts.html")
 
