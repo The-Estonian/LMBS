@@ -40,8 +40,8 @@
                         </label>
                     </div>
                     <input class="account-buttons__form__delete__button" type="submit" value="Edit">
-                    {% if email %}
-                    <span>{{email}}</span>
+                    {% if email_error %}
+                    <span>{{email_error}}</span>
                     {% endif %}
                     {% if username_error %}
                     <span>{{username_error}}</span>
