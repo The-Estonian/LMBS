@@ -538,8 +538,8 @@ html body {
           box-shadow: 2px 1px 10px rgba(0, 0, 0, 0.2);
   margin: 1rem auto;
   background: linear-gradient(225deg, rgba(51, 0, 102, 0.8), rgba(51, 0, 102, 0.6), rgba(51, 0, 102, 0.8), rgba(51, 0, 102, 0.6), rgba(51, 0, 102, 0.8), rgba(51, 0, 102, 0.6), rgba(51, 0, 102, 0.8));
-  padding: 1rem;
-  padding-bottom: 1.5rem;
+  padding: 1.5rem;
+  padding-bottom: 3.5rem;
   position: relative;
 }
 
@@ -564,6 +564,14 @@ html body {
 
 .post-instance__post {
   width: 90%;
+  margin: auto;
+}
+
+.post-instance__date {
+  position: absolute;
+  bottom: 0.2rem;
+  padding: 0.4rem;
+  right: 1rem;
 }
 
 .post-instance__delete {

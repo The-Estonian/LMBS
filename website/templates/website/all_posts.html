@@ -4,6 +4,7 @@
     {% if all_posts %}
         {% for posts in all_posts reversed %}
             <div class="post-instance">
+                <span class="post-instance__date">Posted: {{posts.created_on|timesince}} ago</span>
                 <span class="post-instance__username"><a href="{% url 'public_account' posts.user_id.id %}">{{posts.user_id.username}}</a></span>
                 <span class="post-instance__post">{{posts.message}}</span>
                 {% if user.is_authenticated %}

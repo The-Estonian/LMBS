@@ -2,7 +2,7 @@ from django.db.models import (
     CASCADE,
     Model, 
     ForeignKey,
-    CharField,
+    DateTimeField,
     TextField,
     )
 from django.contrib.auth.models import User
@@ -12,6 +12,8 @@ from django.contrib.auth.models import User
 class Posts(Model):
     user_id = ForeignKey(User, on_delete=CASCADE)
     message = TextField(max_length=255)
+    created_on = DateTimeField(auto_now_add=True)
+    edited_on = DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name_plural = "All available posts!"
@@ -30,7 +32,7 @@ class TemplateChoice(Model):
 
 class Templates(Model):
     user_id = ForeignKey(User, on_delete=CASCADE)
-    template = ForeignKey(TemplateChoice, on_delete=CASCADE, default=1)
+    template = ForeignKey(TemplateChoice, on_delete=CASCADE, default=2)
 
     class Meta:
         verbose_name_plural = "User template picks"

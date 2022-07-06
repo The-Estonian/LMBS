@@ -349,8 +349,8 @@ html{
     box-shadow: $box-shadow;
     margin: 1rem auto;
     background: $background-style;
-    padding: 1rem;
-    padding-bottom: 1.5rem;
+    padding: 1.5rem;
+    padding-bottom: 3.5rem;
     position: relative;
     &__username{
         position: absolute;
@@ -369,6 +369,13 @@ html{
     }
     &__post{
         width: 90%;
+        margin: auto;
+    }
+    &__date{
+        position: absolute;
+        bottom: 0.2rem;
+        padding: 0.4rem;
+        right: 1rem;
     }
     &__delete{
         position: absolute;

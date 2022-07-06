@@ -4,7 +4,7 @@ from .models import Posts, TemplateChoice, Templates
 
 @admin.register(Posts)
 class PostsAdmin(admin.ModelAdmin):
-    list_display = ["id", "user_id", "message"]
+    list_display = ["id", "user_id", "message", "created_on", "edited_on"]
 
 
 @admin.register(TemplateChoice)
