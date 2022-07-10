@@ -1,6 +1,8 @@
 # LMBS
 Leaf Micro Blogging Systems!
 
+A Blogging/Tweet etc. project that has Django Framework as back-end and hmtl/scss as front-end.
+
 ## Account:
 * Create
 * View
